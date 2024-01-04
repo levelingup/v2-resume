@@ -1,7 +1,9 @@
 ---
+import '@/styles/globals.css'
+
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-
+import { Badge } from "@/components/ui/badge"
 import { RESUME_DATA } from '../data/resume-data.ts';
 ---
 
@@ -24,12 +26,17 @@ import { RESUME_DATA } from '../data/resume-data.ts';
 					})}
 				</section>
 			</div>
-			<div class="w-[40%]">
+			<div class="max-w-[40%]">
 				<Image src="/frontend-engineer.jpeg" alt="Andrew Front End Engineer" width="120" height="120" class="rounded-full" />
 				<section>
 					<h2>Skills</h2>
-					<ul>
-						<li class="badge"></li>
+					<ul class="flex gap-2">
+						{RESUME_DATA.skills.map((i) => {
+							return (
+								<li class="badge">
+									<Badge>{i.name}</Badge></li>
+							)
+						})}
 					</ul>
 				</section>
 				<section>
