@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+import { RESUME_DATA } from '../data/resume-data.ts';
+---
+
+<Layout title="Welcome to Astro.">
+	<main class="container mx-auto p-4 h-full max-w-4xl">
+		<div class="flex">
+			<div class="order-2">
+				<section>
+					<h1 class="text-4xl">{RESUME_DATA.name}</h1>
+					<p>{RESUME_DATA.description}</p>
+				</section>
+				<section>
+					<h2>Work Experience</h2>
+					{RESUME_DATA.experience.map((i) => {
+						return (
+							<h3>{i.company}</h3>
+							<p>{i.title}</p>
+							<p>{i.description}</p>
+						)
+					})}
+				</section>
+			</div>
+			<div class="w-[40%]">
+				<Image src="/frontend-engineer.jpeg" alt="Andrew Front End Engineer" width="120" height="120" class="rounded-full" />
+				<section>
+					<h2>Skills</h2>
+					<ul>
+						<li class="badge"></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Projects</h2>
+					
+				</section>
+				<section>
+					<h2>Interests</h2>
+				</section>
+			</div>
+			
+		</div>
+	</main>
+</Layout>
